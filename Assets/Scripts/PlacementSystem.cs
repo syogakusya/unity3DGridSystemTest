@@ -19,9 +19,16 @@ public class PlacementSystem : MonoBehaviour
 
     [SerializeField]
     private GameObject gridVisualization;
+
+    private GridData floorData, furnitureData;
+
+    private Renderer previewRenderer;
     private void Start()
     {
         StopPlacement();
+        floorData = new();
+        furnitureData = new();
+        previewRenderer = cellIndicator.GetComponentInChildren<Renderer>();
     }
 
 
@@ -47,9 +54,22 @@ public class PlacementSystem : MonoBehaviour
         }
         Vector3 mousePosition = inputManager.GetSelectedMapPosition();
         Vector3Int gridPosition = grid.WorldToCell(mousePosition);
+
+        bool placementValidity = CheckPlacementValidity(gridPosition, selectedObjectIndex);
+        if(placementValidity == false)
+        {
+            return;
+        }
+
         GameObject newObject = Instantiate(database.objectsData[selectedObjectIndex].Prefab);
         newObject.transform.position = grid.CellToWorld(gridPosition);
     }
+
+    private bool CheckPlacementValidity(Vector3Int gridPosition, object selected)
+    {
+        throw new NotImplementedException();
+    }
+
     private void StopPlacement()
     {
         selectedObjectIndex = -1;
@@ -65,6 +85,10 @@ public class PlacementSystem : MonoBehaviour
             return;
         Vector3 mousePosition = inputManager.GetSelectedMapPosition();
         Vector3Int gridPosition = grid.WorldToCell(mousePosition);
+
+        bool placementValidity = CheckPlacementValidity(gridPosition, selectedObjectIndex);
+        previewRenderer.material.color = placementValidity ? Color.white : Color.red;
+
         mouseIndicator.transform.position = mousePosition;
         cellIndicator.transform.position = grid.CellToWorld(gridPosition);
     }
