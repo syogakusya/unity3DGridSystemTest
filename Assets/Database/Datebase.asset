@@ -18,13 +18,22 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 1, y: 1}
     <Prefab>k__BackingField: {fileID: 1634536333208554844, guid: 02266e4020667cf4ba91b4dbf87cd7de,
       type: 3}
+    <Attribute>k__BackingField: 0
   - <Name>k__BackingField: Cube
     <ID>k__BackingField: 1
     <Size>k__BackingField: {x: 1, y: 1}
     <Prefab>k__BackingField: {fileID: 2958588402925196997, guid: 03da6c77453530b439b8b8e9ad255588,
       type: 3}
+    <Attribute>k__BackingField: 0
   - <Name>k__BackingField: LargeCube
     <ID>k__BackingField: 2
     <Size>k__BackingField: {x: 2, y: 1}
     <Prefab>k__BackingField: {fileID: 9103286062476243712, guid: f5a3765aa1d42364e8e238b95ef02eb2,
       type: 3}
+    <Attribute>k__BackingField: 0
+  - <Name>k__BackingField: Floor
+    <ID>k__BackingField: 3
+    <Size>k__BackingField: {x: 1, y: 1}
+    <Prefab>k__BackingField: {fileID: 7272384032520399321, guid: afd37bdfa3c697b4cb725a372d47f079,
+      type: 3}
+    <Attribute>k__BackingField: 1

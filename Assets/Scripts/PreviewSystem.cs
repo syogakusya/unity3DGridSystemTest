@@ -59,9 +59,10 @@ public class PreviewSystem : MonoBehaviour
     {
         cellIndicator.SetActive(false);
         Destroy(previewObject);
+        Debug.Log("Destroy!");
     }
 
-    public void UpadatePosition(Vector3 position, bool validity)
+    public void UpdatePosition(Vector3 position, bool validity)
     {
         MovePreview(position);
         MoveCursor(position);
@@ -71,8 +72,9 @@ public class PreviewSystem : MonoBehaviour
     private void ApplyFeedback(bool validity)
     {
         Color c = validity ? Color.white : Color.red;
-        cellIndicatorRenderer.material.color = c;
+        
         c.a = 0.5f;
+        cellIndicatorRenderer.material.color = c;
         previewMaterialInstance.color = c;
     }
 

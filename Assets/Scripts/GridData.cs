@@ -22,12 +22,14 @@ public class GridData
         }
     }
 
-    private List<Vector3Int> CalculatePositions(Vector3Int gridPosition, Vector2Int objectsize)
+    /*CalculatePositions    
+     ˆø”‚É‚Á‚Ä‚¢‚égridPosition‚Æobjectsize‚©‚çGridã‚Å–„‚Ü‚Á‚½À•W‚ğList‚É•Û‘¶‚·‚é‚µA‚»‚ÌList‚ğ–ß‚·*/
+    private List<Vector3Int> CalculatePositions(Vector3Int gridPosition, Vector2Int objectSize)
     {
         List<Vector3Int> returnVal = new();
-        for (int x =0; x<objectsize.x; x++)
+        for (int x =0; x<objectSize.x; x++)
         {
-            for(int y =0; y<objectsize.y; y++)
+            for(int y =0; y<objectSize.y; y++)
             {
                 returnVal.Add(gridPosition + new Vector3Int(x, 0, y));
             }
@@ -35,10 +37,10 @@ public class GridData
         return returnVal;
     }
 
-    public bool CanPlaceObejetAt(Vector3Int gridPosition, Vector2Int objectSize)
+    public bool CanPlaceObjectAt(Vector3Int gridPosition, Vector2Int objectSize)
     {
         List<Vector3Int> positionToOccupy = CalculatePositions(gridPosition, objectSize);
-        foreach(var pos in positionToOccupy)
+        foreach(Vector3Int pos in positionToOccupy)
         {
             if (placedObjects.ContainsKey(pos))
                 return false;
