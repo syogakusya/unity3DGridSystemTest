@@ -71,9 +71,10 @@ public class PlacementSystem : MonoBehaviour
 
     private void StopPlacement()
     {
+        gridVisualization.SetActive(false);
         if (buildingState == null)
             return;
-        gridVisualization.SetActive(false);
+        //gridVisualization.SetActive(true);
         buildingState.EndState();
         inputManager.OnClicked -= PlaceStructure;
         inputManager.OnExit -= StopPlacement;

@@ -55,14 +55,19 @@ public class PreviewSystem : MonoBehaviour
     public void StopShowingPreview()
     {
         cellIndicator.SetActive(false);
-        Destroy(previewObject);
+        if(previewObject!= null)
+            Destroy(previewObject);
     }
 
     public void UpdatePosition(Vector3 position, bool validity)
     {
-        MovePreview(position);
+        if (previewObject != null)
+        {
+            MovePreview(position);
+            ApplyFeedbackToPreview(validity);
+        }
+        
         MoveCursor(position);
-        ApplyFeedbackToPreview(validity);
         ApplyFeedbackToCursor(validity);
     }
 
